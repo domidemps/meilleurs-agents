@@ -10,8 +10,7 @@ module.exports = async (env, argv) => {
       historyApiFallback: true,
       proxy: {
         '/': {
-          target: 'http://localhost:5001',
-          secure: false,
+          target: 'http://0.0.0.0:5001',
         },
       },
     },

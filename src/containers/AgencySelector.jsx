@@ -3,8 +3,9 @@ import {css, jsx} from '@emotion/core'
 import map from 'lodash/map'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
-import {getAgencies} from '../actions/realtors'
 import {NativeSelect} from '@material-ui/core'
+
+import {getAgencies, selectAgency} from '../actions/realtors'
 import {SECONDARY_COLOR} from '../styles/material_ui_raw_theme_file'
 
 const styles = css`
@@ -26,18 +27,24 @@ export default function AgencySelector() {
     }
   }, [agencies])
 
+  if (!Boolean(agencies)) {
+    return null
+  }
+
+  const handleSelection = event => dispatch(selectAgency(event.target.value))
+
   const renderAgenciesChoices = agencies => {
     return map(agencies, agency => {
       return (
-        <option value={agency.id} selected={agencies[0] === agency} className="options">
+        <option value={agency.id} className="options" key={`agency-${agency.id}`}>
           {agency.name}
         </option>
       )
     })
   }
-
-  if (!Boolean(agencies)) {
-    return null
-  }
-  return <NativeSelect css={styles}>{renderAgenciesChoices(agencies)}</NativeSelect>
+  return (
+    <NativeSelect css={styles} onChange={e => handleSelection(e)}>
+      {renderAgenciesChoices(agencies)}
+    </NativeSelect>
+  )
 }

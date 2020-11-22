@@ -30,3 +30,7 @@ export function getAgencies() {
       })
   }
 }
+
+export function selectAgency(agencyId) {
+  return {type: 'SELECT_AGENCY', agencyId}
+}
