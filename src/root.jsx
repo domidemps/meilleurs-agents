@@ -7,6 +7,7 @@ import {ConnectedRouter} from 'connected-react-router'
 
 import theme from 'styles/material_ui_raw_theme_file'
 import {persistor, store} from './store/configureStore'
+import MainPage from './containers/MainPage'
 
 require('./main.css')
 
@@ -18,7 +19,7 @@ const App = ({history}) => {
           <MuiThemeProvider theme={theme}>
             <div>
               <Switch>
-                <Route exact path="/" render={() => <html>Hello world!</html>} />
+                <Route exact path="/" render={() => <MainPage />} />
                 <Route render={() => <div>Page not found</div>} />
               </Switch>
             </div>

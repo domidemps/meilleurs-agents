@@ -1,7 +1,7 @@
 {
   "name": "meilleurs-agents",
   "version": "1.0.0",
-  "description": "Viewing of all messages sent to a real state agency",
+  "description": "Home-project for being recruited by MeilleursAgents",
   "main": "src/index.jsx",
   "scripts": {
     "start": "webpack-dev-server -d --hot --inline --progress --colors",
@@ -33,6 +33,7 @@
     "prettier": "^1.19.1",
     "react-hot-loader": "4.12.19",
     "style-loader": "0.23.1",
+    "url-loader": "1.1.2",
     "webpack": "4.41.5",
     "webpack-cli": "3.3.10",
     "webpack-dev-server": "3.10.1"
@@ -40,6 +41,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@material-ui/core": "4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@material/typography": "4.0.0",
     "connected-react-router": "6.7.0",
     "history": "4.10.1",
