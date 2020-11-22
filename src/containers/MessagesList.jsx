@@ -13,11 +13,12 @@ import EmailIcon from '@material-ui/icons/Email'
 import ListItemText from '@material-ui/core/ListItemText'
 import {lighten} from '@material-ui/core'
 import Divider from '@material-ui/core/Divider'
+import {useHistory} from 'react-router'
 
 import map from 'lodash/map'
 import truncate from 'lodash/truncate'
 
-import {getPageMessages} from '../actions/messages'
+import {getPageMessages, markMessageAsRead, setMessageSelected} from '../actions/messages'
 import {getRelativeDateTime} from '../helpers/utils'
 import {
   READ_COLOR,
@@ -34,6 +35,7 @@ export default function MessagesList() {
   const page = useSelector(state => state.messages.page)
   const selectedAgency = useSelector(state => state.realtors.selectedAgency)
   const hasMore = useSelector(state => state.messages.hasMore)
+  const history = useHistory()
 
   const renderMessageIcon = (messageType, isMessageRead) => {
     const color = isMessageRead ? READ_COLOR : SECONDARY_COLOR
@@ -111,10 +113,20 @@ export default function MessagesList() {
     )
   }
 
+  const openMessage = messageId => {
+    dispatch(setMessageSelected(messageId))
+    dispatch(markMessageAsRead(selectedAgency, messageId))
+    history.push(`/message/${messageId}`)
+  }
+
   const renderMessages = messages => {
     return map(messages, message => {
       return [
-        <ListItem alignItems="flex-start" key={`message-${message.id}`}>
+        <ListItem
+          alignItems="flex-start"
+          key={`message-${message.id}`}
+          onClick={() => openMessage(message.id)}
+          button>
           <ListItemIcon>{renderMessageIcon(message.type, message.read)}</ListItemIcon>
           <ListItemText
             primary={
@@ -153,9 +165,17 @@ export default function MessagesList() {
         dataLength={messages.length}
         next={getMoreMessages(selectedAgency, page, hasMore)}
         hasMore={hasMore}
-        loader={<Typography variant="h5">Loading...</Typography>}
+        loader={<Typography variant="h5">Chargement...</Typography>}
         height={window.innerHeight - 100}
-        endMessage={<Typography variant="h6">No more messages</Typography>}>
+        endMessage={
+          <Typography
+            variant="h6"
+            css={css`
+              text-align: center;
+            `}>
+            Pas de messages supplémentaires.
+          </Typography>
+        }>
         <List>{renderMessages(messages)}</List>
       </InfiniteScroll>
     </div>

@@ -1,11 +1,14 @@
 import concat from 'lodash/concat'
 import isEmpty from 'lodash/isEmpty'
+import filter from 'lodash/filter'
+import findIndex from 'lodash/findIndex'
 
 export function initialMessagesState() {
   return {
     messages: [],
     page: 1,
     hasMore: true,
+    selectedMessage: null,
   }
 }
 
@@ -20,6 +23,25 @@ export default (state = initialMessagesState(), action) => {
       }
     case 'SELECT_AGENCY':
       return initialMessagesState()
+    case 'SET_MESSAGE_SELECTED': {
+      const selectedMessage = filter(state.messages, message => {
+        return message.id === action.messageId
+      })
+      return {
+        ...state,
+        selectedMessage: selectedMessage[0],
+      }
+    }
+    case 'MARK_MESSAGE_AS_READ_SUCCESS':
+      let newMessages = [...state.messages]
+      const messageIndex = findIndex(newMessages, message => {
+        return message.id === action.messageId
+      })
+      newMessages[messageIndex] = {...newMessages[messageIndex], read: true}
+      return {
+        ...state,
+        messages: newMessages,
+      }
     default:
       return state
   }

@@ -3,43 +3,54 @@ import {createMuiTheme} from '@material-ui/core/styles'
 export const ENABLED_COLOR = '#6cb81e'
 export const READ_COLOR = '#a8a8a8'
 export const UNREAD_COLOR = '#212121'
-export const TEXT_SECONDARY_COLOR = '#ffffff'
-export const PRIMARY_COLOR = '#ededed'
+export const PRIMARY_COLOR = '#ffffff'
 export const SECONDARY_COLOR = '#124080'
 export const THIRD_COLOR = '#0074e3'
+export const BACKGROUND = '#eeeeee'
+export const TEXT_COLOR = '#303030'
 
 const rawBaseTheme = {
   palette: {
     type: 'light',
     background: {
-      default: PRIMARY_COLOR,
-      paper: '#fefefe',
+      default: BACKGROUND,
+      paper: PRIMARY_COLOR,
     },
   },
   overrides: {
     MuiAppBar: {
       colorPrimary: {
-        color: TEXT_SECONDARY_COLOR,
+        color: PRIMARY_COLOR,
         backgroundColor: SECONDARY_COLOR,
       },
     },
     MuiChip: {
       colorPrimary: {
         backgroundColor: ENABLED_COLOR,
-        color: TEXT_SECONDARY_COLOR,
+        color: PRIMARY_COLOR,
       },
     },
     MuiInput: {
       underline: {
-        borderBottom: `2px solid ${TEXT_SECONDARY_COLOR}`,
+        borderBottom: `2px solid ${PRIMARY_COLOR}`,
       },
     },
     MuiNativeSelect: {
       icon: {
-        color: TEXT_SECONDARY_COLOR,
+        color: PRIMARY_COLOR,
       },
       root: {
-        color: TEXT_SECONDARY_COLOR,
+        color: PRIMARY_COLOR,
+      },
+    },
+    MuiPaper: {
+      root: {
+        color: PRIMARY_COLOR,
+      },
+    },
+    MuiList: {
+      root: {
+        backgroundColor: PRIMARY_COLOR,
       },
     },
   },
