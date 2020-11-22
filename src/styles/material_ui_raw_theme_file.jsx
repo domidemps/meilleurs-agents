@@ -1,7 +1,8 @@
 import {createMuiTheme} from '@material-ui/core/styles'
 
 export const ENABLED_COLOR = '#6cb81e'
-export const DISABLED_COLOR = '#a2a2a2'
+export const READ_COLOR = '#a8a8a8'
+export const UNREAD_COLOR = '#212121'
 export const TEXT_SECONDARY_COLOR = '#ffffff'
 export const PRIMARY_COLOR = '#ededed'
 export const SECONDARY_COLOR = '#124080'
@@ -26,10 +27,6 @@ const rawBaseTheme = {
         backgroundColor: ENABLED_COLOR,
         color: TEXT_SECONDARY_COLOR,
       },
-      // colorSecondary: {
-      //   backgroundColor: DISABLED_COLOR,
-      //   color: DISABLED_COLOR,
-      // },
     },
     MuiInput: {
       underline: {

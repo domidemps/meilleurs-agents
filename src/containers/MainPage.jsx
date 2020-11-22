@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import MeilleursAgentsLogo from '../assets/logo-meilleursagentspro-neg.svg'
 import UnreadMessagesCounter from './UnreadMessagesCounter'
 import AgencySelector from './AgencySelector'
+import MessagesList from './MessagesList'
 
 const styles = css`
   .toolBar {
@@ -15,12 +16,15 @@ const styles = css`
   .verticallyCentered {
     vertical-align: middle;
   }
+  .appBody {
+    display: flex;
+  }
 `
 
 export default function MainPage() {
   return (
     <div css={styles}>
-      <AppBar>
+      <AppBar position="sticky">
         <Toolbar className="toolBar">
           <div>
             <img
@@ -33,6 +37,9 @@ export default function MainPage() {
           <AgencySelector />
         </Toolbar>
       </AppBar>
+      <div className="appBody">
+        <MessagesList />
+      </div>
     </div>
   )
 }

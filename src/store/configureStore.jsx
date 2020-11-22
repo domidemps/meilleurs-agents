@@ -14,7 +14,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['realtors'],
+  blacklist: ['realtors', 'messages'],
 }
 
 const persistedRootReducer = persistReducer(persistConfig, reducers)

@@ -1,7 +1,7 @@
 export function realtorsInitialState() {
   return {
     agencies: null,
-    selectedAgency: -1,
+    selectedAgency: '',
   }
 }
 
