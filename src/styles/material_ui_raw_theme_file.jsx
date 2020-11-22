@@ -6,6 +6,7 @@ export const UNREAD_COLOR = '#212121'
 export const TEXT_SECONDARY_COLOR = '#ffffff'
 export const PRIMARY_COLOR = '#ededed'
 export const SECONDARY_COLOR = '#124080'
+export const THIRD_COLOR = '#0074e3'
 
 const rawBaseTheme = {
   palette: {

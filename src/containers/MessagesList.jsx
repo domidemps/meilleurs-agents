@@ -12,12 +12,19 @@ import SmsIcon from '@material-ui/icons/Sms'
 import EmailIcon from '@material-ui/icons/Email'
 import ListItemText from '@material-ui/core/ListItemText'
 import {lighten} from '@material-ui/core'
-import map from 'lodash/map'
-import truncate from 'lodash/truncate'
 import Divider from '@material-ui/core/Divider'
 
+import map from 'lodash/map'
+import truncate from 'lodash/truncate'
+
 import {getPageMessages} from '../actions/messages'
-import {READ_COLOR, SECONDARY_COLOR, UNREAD_COLOR} from '../styles/material_ui_raw_theme_file'
+import {getRelativeDateTime} from '../helpers/utils'
+import {
+  READ_COLOR,
+  SECONDARY_COLOR,
+  THIRD_COLOR,
+  UNREAD_COLOR,
+} from '../styles/material_ui_raw_theme_file'
 
 const styles = css``
 
@@ -64,6 +71,18 @@ export default function MessagesList() {
     return <strong>{sender}</strong>
   }
 
+  const renderMessageDate = (messageDate, isMessageRead) => {
+    return (
+      <text
+        css={css`
+          color: ${isMessageRead ? READ_COLOR : THIRD_COLOR};
+          float: right;
+        `}>
+        {getRelativeDateTime(messageDate)}
+      </text>
+    )
+  }
+
   const renderMessageInfo = (messageType, isMessageRead) => {
     const subtitle =
       messageType === 'phone'
@@ -99,7 +118,10 @@ export default function MessagesList() {
           <ListItemIcon>{renderMessageIcon(message.type, message.read)}</ListItemIcon>
           <ListItemText
             primary={
-              <React.Fragment>{renderMessageSender(message.contact, message.read)}</React.Fragment>
+              <React.Fragment>
+                {renderMessageSender(message.contact, message.read)}
+                {renderMessageDate(message.date, message.read)}
+              </React.Fragment>
             }
             secondary={
               <React.Fragment>

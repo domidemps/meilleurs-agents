@@ -19,6 +19,13 @@ const styles = css`
   .appBody {
     display: flex;
   }
+  .messagesList {
+    width: 30%;
+    display: flex;
+  }
+  .messageView {
+    width: 70%;
+  }
 `
 
 export default function MainPage() {
@@ -38,7 +45,8 @@ export default function MainPage() {
         </Toolbar>
       </AppBar>
       <div className="appBody">
-        <MessagesList />
+        <MessagesList className="messagesList" />
+        <div className="messageView"></div>
       </div>
     </div>
   )
