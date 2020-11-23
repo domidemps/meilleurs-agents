@@ -4,6 +4,7 @@ import map from 'lodash/map'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import {NativeSelect} from '@material-ui/core'
+import {useHistory} from 'react-router'
 
 import {getAgencies, selectAgency} from '../actions/realtors'
 import {SECONDARY_COLOR} from '../styles/material_ui_raw_theme_file'
@@ -20,10 +21,14 @@ const styles = css`
 export default function AgencySelector() {
   const dispatch = useDispatch()
   const agencies = useSelector(state => state.realtors.agencies)
+  const selectedAgency = useSelector(state => state.realtors.selectedAgency)
+  const history = useHistory()
 
   useEffect(() => {
     if (!Boolean(agencies)) {
       dispatch(getAgencies())
+    } else {
+      history.replace(`/realtor/${selectedAgency}`)
     }
   }, [agencies])
 
@@ -31,7 +36,11 @@ export default function AgencySelector() {
     return null
   }
 
-  const handleSelection = event => dispatch(selectAgency(Number(event.target.value)))
+  const handleSelection = event => {
+    const newAgency = Number(event.target.value)
+    dispatch(selectAgency(newAgency))
+    history.replace(`/realtor/${newAgency}`)
+  }
 
   const renderAgenciesChoices = agencies => {
     return map(agencies, agency => {

@@ -2,7 +2,7 @@
 import {css, jsx} from '@emotion/core'
 import React from 'react'
 import List from '@material-ui/core/List'
-import InfiniteScroll from 'react-infinite-scroll-component'
+import InfiniteScroll from 'react-infinite-scroller'
 import Typography from '@material-ui/core/Typography'
 import {useDispatch, useSelector} from 'react-redux'
 import ListItem from '@material-ui/core/ListItem'
@@ -27,7 +27,10 @@ import {
   UNREAD_COLOR,
 } from '../styles/material_ui_raw_theme_file'
 
-const styles = css``
+const styles = css`
+  height: 700px;
+  overflow: auto;
+`
 
 export default function MessagesList() {
   const dispatch = useDispatch()
@@ -108,7 +111,10 @@ export default function MessagesList() {
         css={css`
           color: ${isMessageRead ? READ_COLOR : lighten(UNREAD_COLOR, 0.3)};
         `}>
-        {truncate(messageBody, {length: 100, separator: ' '})}
+        {truncate(messageBody, {
+          length: 100,
+          separator: ' ',
+        })}
       </Typography>
     )
   }
@@ -118,7 +124,7 @@ export default function MessagesList() {
       dispatch(markMessageAsRead(selectedAgency, message.id))
     }
     dispatch(setMessageSelected(message.id))
-    history.push(`/message/${message.id}`)
+    history.replace(`/realtor/${selectedAgency}/message/${message.id}`)
   }
 
   const renderMessages = messages => {
@@ -150,10 +156,7 @@ export default function MessagesList() {
     })
   }
 
-  const getMoreMessages = (selectedAgency, nextPage, hasMore) => {
-    if (!hasMore) {
-      return
-    }
+  const getMoreMessages = (selectedAgency, nextPage) => {
     dispatch(getPageMessages(selectedAgency, nextPage))
   }
 
@@ -162,24 +165,36 @@ export default function MessagesList() {
   }
 
   return (
-    <div css={styles}>
+    <List
+      css={css`
+        height: ${window.innerHeight - 100}px;
+        overflow: auto;
+      `}>
       <InfiniteScroll
-        dataLength={messages.length}
-        next={getMoreMessages(selectedAgency, page, hasMore)}
+        pageStart={0}
+        loadMore={() => getMoreMessages(selectedAgency, page)}
         hasMore={hasMore}
-        loader={<Typography variant="h5">Chargement...</Typography>}
-        height={window.innerHeight - 100}
-        endMessage={
+        loader={
           <Typography
             variant="h6"
             css={css`
               text-align: center;
             `}>
-            Pas de messages supplémentaires.
+            Chargement...
           </Typography>
-        }>
-        <List>{renderMessages(messages)}</List>
+        }
+        useWindow={false}>
+        {renderMessages(messages)}
       </InfiniteScroll>
-    </div>
+      {!hasMore ? (
+        <Typography
+          variant="h6"
+          css={css`
+            text-align: center;
+          `}>
+          Pas de messages supplémentaires.
+        </Typography>
+      ) : null}
+    </List>
   )
 }

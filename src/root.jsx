@@ -3,15 +3,19 @@ import {css, jsx} from '@emotion/core'
 import React from 'react'
 import {Provider} from 'react-redux'
 import {MuiThemeProvider} from '@material-ui/core/styles'
-import {PersistGate} from 'redux-persist/integration/react'
-import {Route, Switch} from 'react-router'
-import {ConnectedRouter} from 'connected-react-router'
+import {Route, Switch} from 'react-router-dom'
+import {ConnectedRouter, connectRouter, routerMiddleware} from 'connected-react-router'
 
 import theme from 'styles/material_ui_raw_theme_file'
-import {persistor, store} from './store/configureStore'
 import MessageView from './containers/MessageView'
-import Header from './containers/AppBar'
+import Header from './containers/Header'
 import MessagesList from './containers/MessagesList'
+import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
+import {createBrowserHistory} from 'history'
+import realtors from './reducers/realtors'
+import messages from './reducers/messages'
+import thunk from 'redux-thunk'
+import promise from 'redux-promise'
 
 require('./main.css')
 
@@ -28,37 +32,72 @@ const styles = css`
   }
 `
 
-const App = ({history}) => {
+export const history = createBrowserHistory()
+
+const middlewares = [thunk, promise, routerMiddleware(history)]
+
+export const store = createStore(
+  combineReducers({
+    realtors,
+    messages,
+    router: connectRouter(history),
+  }),
+  undefined,
+  compose(applyMiddleware(...middlewares)),
+)
+
+const MainPage = () => {
   return (
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <PersistGate loading={null} persistor={persistor}>
+    <div css={styles}>
+      <div className="appBody" />
+    </div>
+  )
+}
+
+const MessagesListPage = () => {
+  return (
+    <div css={styles}>
+      <div className="appBody">
+        <MessagesList className="messagesList" key="messagesList" />
+      </div>
+    </div>
+  )
+}
+
+const MessagesListAndViewPage = () => {
+  return (
+    <div css={styles}>
+      <div className="appBody">
+        <MessagesList className="messagesList" key="messagesList" />
+        <MessageView className="messageView" key="messageView" />
+      </div>
+    </div>
+  )
+}
+
+const App = () => {
+  return (
+    <div className="App">
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
           <MuiThemeProvider theme={theme}>
             <div>
               <Header />
               <Switch>
-                <Route exact path="/">
-                  <div css={styles}>
-                    <div className="appBody">
-                      <MessagesList className="messagesList" key="messagesList" />
-                    </div>
-                  </div>
-                </Route>
-                <Route exact path="/message/:id">
-                  <div css={styles}>
-                    <div className="appBody">
-                      <MessagesList className="messagesList" key="messagesList" />
-                      <MessageView className="messageView" key="messageView" />
-                    </div>
-                  </div>
-                </Route>
+                <Route exact path="/" render={() => <MainPage />} />
+                <Route exact path="/realtor/:agencyId" render={() => <MessagesListPage />} />
+                <Route
+                  exact
+                  path="/realtor/:agencyId/message/:messageId"
+                  render={() => <MessagesListAndViewPage />}
+                />
                 <Route render={() => <div>Page not found</div>} />
               </Switch>
             </div>
           </MuiThemeProvider>
-        </PersistGate>
-      </ConnectedRouter>
-    </Provider>
+        </ConnectedRouter>
+      </Provider>
+    </div>
   )
 }
 export default App

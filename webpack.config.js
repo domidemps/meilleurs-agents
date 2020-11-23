@@ -11,6 +11,7 @@ module.exports = async (env, argv) => {
       proxy: {
         '/': {
           target: 'http://0.0.0.0:5001',
+          secure: false,
         },
       },
     },
