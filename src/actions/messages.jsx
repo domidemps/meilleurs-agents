@@ -44,6 +44,8 @@ function markMessageAsReadSuccess(messageId) {
 }
 
 export function markMessageAsRead(selectedAgency, messageId) {
+  console.log(selectedAgency, messageId)
+  console.log(typeof selectedAgency, typeof messageId)
   return dispatch => {
     dispatch(markingMessageAsRead())
     return fetch(`/realtors/${selectedAgency}/messages/${messageId}`, {

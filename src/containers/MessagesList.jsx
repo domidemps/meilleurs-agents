@@ -18,11 +18,7 @@ import {useHistory} from 'react-router'
 import map from 'lodash/map'
 import truncate from 'lodash/truncate'
 
-import {
-  getPageMessages,
-  markMessageAsRead,
-  setMessageSelected,
-} from '../actions/messages'
+import {getPageMessages, markMessageAsRead, setMessageSelected} from '../actions/messages'
 import {getRelativeDateTime} from '../helpers/utils'
 import {
   READ_COLOR,
@@ -117,10 +113,12 @@ export default function MessagesList() {
     )
   }
 
-  const openMessage = messageId => {
-    dispatch(setMessageSelected(messageId))
-    dispatch(markMessageAsRead(selectedAgency, messageId))
-    history.push(`/message/${messageId}`)
+  const openMessage = message => {
+    if (!message.read) {
+      dispatch(markMessageAsRead(selectedAgency, message.id))
+    }
+    dispatch(setMessageSelected(message.id))
+    history.push(`/message/${message.id}`)
   }
 
   const renderMessages = messages => {
@@ -129,7 +127,7 @@ export default function MessagesList() {
         <ListItem
           alignItems="flex-start"
           key={`message-${message.id}`}
-          onClick={() => openMessage(message.id)}
+          onClick={() => openMessage(message)}
           button>
           <ListItemIcon>{renderMessageIcon(message.type, message.read)}</ListItemIcon>
           <ListItemText

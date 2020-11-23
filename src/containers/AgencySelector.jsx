@@ -31,7 +31,7 @@ export default function AgencySelector() {
     return null
   }
 
-  const handleSelection = event => dispatch(selectAgency(event.target.value))
+  const handleSelection = event => dispatch(selectAgency(Number(event.target.value)))
 
   const renderAgenciesChoices = agencies => {
     return map(agencies, agency => {
