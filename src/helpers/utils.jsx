@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import filter from 'lodash/filter'
 
 export function getRelativeDateTime(date) {
   const dateObject = dayjs(date)
@@ -12,4 +13,10 @@ export function getRelativeDateTime(date) {
     return 'Avant-hier'
   }
   return dateObject.format('DD/MM/YYYY')
+}
+
+export function getUnreadMessagesCounter(agencies, selectedAgency) {
+  return filter(agencies, agency => {
+    return agency.id === Number(selectedAgency)
+  })[0].unread_messages
 }

@@ -3,7 +3,6 @@ import {css, jsx} from '@emotion/core'
 import Chip from '@material-ui/core/Chip'
 import MailIcon from '@material-ui/icons/Mail'
 import {useSelector} from 'react-redux'
-import filter from 'lodash/filter'
 
 const styles = css`
   margin: 20px;
@@ -12,15 +11,11 @@ const styles = css`
 
 export default function UnreadMessagesCounter() {
   const agencies = useSelector(state => state.realtors.agencies)
-  const selectedAgency = useSelector(state => state.realtors.selectedAgency)
+  const unreadMessages = useSelector(state => state.realtors.unreadMessages)
 
   if (!Boolean(agencies)) {
     return null
   }
-
-  const unreadMessages = filter(agencies, agency => {
-    return agency.id === Number(selectedAgency)
-  })[0].unread_messages
 
   return (
     <Chip

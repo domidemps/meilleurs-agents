@@ -18,7 +18,11 @@ import {useHistory} from 'react-router'
 import map from 'lodash/map'
 import truncate from 'lodash/truncate'
 
-import {getPageMessages, markMessageAsRead, setMessageSelected} from '../actions/messages'
+import {
+  getPageMessages,
+  markMessageAsRead,
+  setMessageSelected,
+} from '../actions/messages'
 import {getRelativeDateTime} from '../helpers/utils'
 import {
   READ_COLOR,
