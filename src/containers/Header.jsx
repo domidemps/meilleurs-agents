@@ -7,6 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import AgencySelector from './AgencySelector'
 import MeilleursAgentsLogo from '../assets/logo-meilleursagentspro-neg.svg'
 import UnreadMessagesCounter from './UnreadMessagesCounter'
+import media from '../styles/media'
 
 const styles = css`
   display: flex;
@@ -14,17 +15,25 @@ const styles = css`
     display: flex;
     justify-content: space-between;
   }
-  .verticallyCentered {
+  .logo {
     vertical-align: middle;
   }
+  ${media.phone`
+    .logo {
+      width: 150px;
+    }
+    .displayContents {
+      display: contents;
+    }
+  `}
 `
 
 export default function Header() {
   return (
     <AppBar position="sticky" css={styles}>
       <Toolbar className="toolBar">
-        <div>
-          <img src={MeilleursAgentsLogo} alt="MeilleursAgents PRO" className="verticallyCentered" />
+        <div className="displayContents">
+          <img src={MeilleursAgentsLogo} alt="MeilleursAgents PRO" className="logo" />
           <UnreadMessagesCounter />
         </div>
         <AgencySelector />

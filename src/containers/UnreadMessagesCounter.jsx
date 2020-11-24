@@ -4,9 +4,17 @@ import Chip from '@material-ui/core/Chip'
 import MailIcon from '@material-ui/icons/Mail'
 import {useSelector} from 'react-redux'
 
+import media from '../styles/media'
+
 const styles = css`
   margin: 20px;
   padding: 5px;
+  ${media.phone`
+    margin: 20px 0px;
+    .mailIcon {
+      width: 15px;
+    }
+  `}
 `
 
 export default function UnreadMessagesCounter() {
@@ -20,7 +28,7 @@ export default function UnreadMessagesCounter() {
   return (
     <Chip
       css={styles}
-      icon={<MailIcon />}
+      icon={<MailIcon className="mailIcon" />}
       label={<strong>{unreadMessages}</strong>}
       color="primary"
     />

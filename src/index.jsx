@@ -3,10 +3,6 @@ import ReactDOM from 'react-dom'
 import {AppContainer} from 'react-hot-loader'
 import App, {store, history} from './root'
 
-// import {store} from 'root'
-// import {history} from 'reducers'
-
-// Needed for React Developer Tools
 window.React = React
 
 const render = Component => {

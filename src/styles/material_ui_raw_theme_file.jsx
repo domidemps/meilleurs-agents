@@ -53,6 +53,13 @@ const rawBaseTheme = {
         backgroundColor: PRIMARY_COLOR,
       },
     },
+    MuiDialog: {
+      paper: {
+        backgroundColor: SECONDARY_COLOR,
+        paddingBottom: 20,
+        textAlign: 'center',
+      },
+    },
   },
 }
 
