@@ -10,10 +10,7 @@ const styles = css`
   margin: 20px;
   padding: 5px;
   ${media.phone`
-    margin: 20px 0px;
-    .mailIcon {
-      width: 15px;
-    }
+    margin: 20px 0px 20px 10px;
   `}
 `
 
@@ -28,7 +25,7 @@ export default function UnreadMessagesCounter() {
   return (
     <Chip
       css={styles}
-      icon={<MailIcon className="mailIcon" />}
+      icon={<MailIcon/>}
       label={<strong>{unreadMessages}</strong>}
       color="primary"
     />

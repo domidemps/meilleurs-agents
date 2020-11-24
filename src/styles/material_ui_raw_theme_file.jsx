@@ -60,6 +60,11 @@ const rawBaseTheme = {
         textAlign: 'center',
       },
     },
+    MuiButton: {
+      containedPrimary: {
+        backgroundColor: SECONDARY_COLOR,
+      },
+    },
   },
 }
 

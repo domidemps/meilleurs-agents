@@ -22,9 +22,6 @@ const styles = css`
     .logo {
       width: 150px;
     }
-    .displayContents {
-      display: contents;
-    }
   `}
 `
 
@@ -32,7 +29,7 @@ export default function Header() {
   return (
     <AppBar position="sticky" css={styles}>
       <Toolbar className="toolBar">
-        <div className="displayContents">
+        <div>
           <img src={MeilleursAgentsLogo} alt="MeilleursAgents PRO" className="logo" />
           <UnreadMessagesCounter />
         </div>

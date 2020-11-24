@@ -5,6 +5,8 @@ import {Provider} from 'react-redux'
 import {MuiThemeProvider} from '@material-ui/core/styles'
 import {Route, Switch} from 'react-router-dom'
 import {ConnectedRouter, connectRouter, routerMiddleware} from 'connected-react-router'
+import thunk from 'redux-thunk'
+import promise from 'redux-promise'
 
 import theme from 'styles/material_ui_raw_theme_file'
 import MessageView from './containers/MessageView'
@@ -14,8 +16,8 @@ import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import {createBrowserHistory} from 'history'
 import realtors from './reducers/realtors'
 import messages from './reducers/messages'
-import thunk from 'redux-thunk'
-import promise from 'redux-promise'
+import breakpoints from './styles/breakpoints'
+import media from './styles/media'
 
 require('./main.css')
 
@@ -30,6 +32,14 @@ const styles = css`
   .messageView {
     width: 70%;
   }
+  ${media.phone`
+    .messagesList {
+      width: 100%;
+    }
+    .messageView {
+      width: 100%;
+    }
+  `}
 `
 
 export const history = createBrowserHistory()
@@ -64,11 +74,13 @@ const MessagesListPage = () => {
   )
 }
 
-const MessagesListAndViewPage = () => {
+const MessageViewPage = () => {
   return (
     <div css={styles}>
       <div className="appBody">
-        <MessagesList className="messagesList" key="messagesList" />
+        {window.innerWidth >= breakpoints.phone ? (
+          <MessagesList className="messagesList" key="messagesList" />
+        ) : null}
         <MessageView className="messageView" key="messageView" />
       </div>
     </div>
@@ -89,7 +101,7 @@ const App = () => {
                 <Route
                   exact
                   path="/realtor/:agencyId/message/:messageId"
-                  render={() => <MessagesListAndViewPage />}
+                  render={() => <MessageViewPage />}
                 />
                 <Route render={() => <div>Page not found</div>} />
               </Switch>

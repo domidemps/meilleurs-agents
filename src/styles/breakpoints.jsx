@@ -1,3 +1,3 @@
 export default {
-  phone: 376,
+  phone: 420,
 }
