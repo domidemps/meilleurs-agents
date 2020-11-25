@@ -47,7 +47,9 @@ export default function AgencySelector() {
     const newAgency = Number(event.target.value)
     dispatch(selectAgency(newAgency))
     history.replace(`/realtor/${newAgency}`)
-    handleToggleDialogPhoneView()
+    if (window.innerWidth < breakpoints.phone) {
+      handleToggleDialogPhoneView()
+    }
   }
 
   const renderAgenciesChoices = () => {

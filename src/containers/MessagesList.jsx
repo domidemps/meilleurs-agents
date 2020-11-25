@@ -27,11 +27,6 @@ import {
   UNREAD_COLOR,
 } from '../styles/material_ui_raw_theme_file'
 
-const styles = css`
-  height: 700px;
-  overflow: auto;
-`
-
 export default function MessagesList() {
   const dispatch = useDispatch()
   const messages = useSelector(state => state.messages.messages)
