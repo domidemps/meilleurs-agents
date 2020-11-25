@@ -25,3 +25,18 @@ The realtor:
 - can view the messages of a selected agency
 - can scroll through the list of messages
 - can open a message to see its details. If the message was not read before, the counter of "unread messages" decrements.
+
+## Let's start
+
+- Run the API, port 5001
+- Build the code: `yarn build`
+- Start the client: `yarn start`
+- Open a browser and go to http://localhost:8080/
+
+**Tested web browsers:**
+- Mozilla Firefox 82.02 (64-bits) or higher
+- Google Chrome 86.0.4240.111 or higher
+
+## Run tests
+
+`yarn tests`
