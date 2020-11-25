@@ -18,6 +18,8 @@ Messages can be of several types:
 
 The realtor can view messages sent to one or more agencies to which he is attached.
 
+![Computer view](https://github.com/domidemps/meilleurs-agents/blob/master/images/computer-view.png?raw=true)
+
 ## Main features
 
 The realtor:
@@ -34,6 +36,7 @@ The realtor:
 - Open a browser and go to http://localhost:8080/
 
 **Tested web browsers:**
+
 - Mozilla Firefox 82.02 (64-bits) or higher
 - Google Chrome 86.0.4240.111 or higher
 
