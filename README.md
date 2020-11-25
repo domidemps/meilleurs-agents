@@ -18,7 +18,10 @@ Messages can be of several types:
 
 The realtor can view messages sent to one or more agencies to which he is attached.
 
-![Computer view](https://github.com/domidemps/meilleurs-agents/blob/main/images/computer-view.png?raw=true)
+![Smartphone view (1)](https://github.com/domidemps/meilleurs-agents/blob/main/images/smartphone-view-1.png?raw=true 'Smartphone view (1)')
+![Smartphone view (2)](https://github.com/domidemps/meilleurs-agents/blob/main/images/smartphone-view-2.png?raw=true 'Smartphone view (2)')
+
+![Computer view](https://github.com/domidemps/meilleurs-agents/blob/main/images/computer-view.png?raw=true 'Computer and tablet view')
 
 ## Main features
 
