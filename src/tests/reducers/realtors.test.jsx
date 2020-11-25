@@ -1,5 +1,4 @@
 import reducer, {realtorsInitialState} from '../../reducers/realtors'
-import {getUnreadMessagesCounter} from '../../helpers/utils'
 
 describe('"realtors" reducer', () => {
   const agencies = [
