@@ -16,13 +16,6 @@ Messages can be of several types:
 - text message
 - vocal message
 
-The realtor can view messages sent to one or more agencies to which he is attached.
-
-![Smartphone view (1)](https://github.com/domidemps/meilleurs-agents/blob/main/images/smartphone-view-1.png?raw=true 'Smartphone view (1)')
-![Smartphone view (2)](https://github.com/domidemps/meilleurs-agents/blob/main/images/smartphone-view-2.png?raw=true 'Smartphone view (2)')
-
-![Computer view](https://github.com/domidemps/meilleurs-agents/blob/main/images/computer-view.png?raw=true 'Computer and tablet view')
-
 ## Main features
 
 The realtor:
@@ -30,6 +23,15 @@ The realtor:
 - can view the messages of a selected agency
 - can scroll through the list of messages
 - can open a message to see its details. If the message was not read before, the counter of "unread messages" decrements.
+
+### Smartphone views
+
+![Smartphone view (1)](https://github.com/domidemps/meilleurs-agents/blob/main/images/smartphone-view-1.png?raw=true 'Smartphone view (1)')
+![Smartphone view (2)](https://github.com/domidemps/meilleurs-agents/blob/main/images/smartphone-view-2.png?raw=true 'Smartphone view (2)')
+
+### Computer and tablet view
+
+![Computer view](https://github.com/domidemps/meilleurs-agents/blob/main/images/computer-view.png?raw=true 'Computer and tablet view')
 
 ## Let's start
 
