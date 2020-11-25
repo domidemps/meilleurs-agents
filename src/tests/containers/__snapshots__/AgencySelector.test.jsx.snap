@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AgencySelector renders correctly for computers/tablets 1`] = `
+<div
+  className="MuiInputBase-root MuiInput-root MuiInput-underline css-kkkune-AgencySelector"
+  onClick={[Function]}
+>
+  <select
+    className="MuiNativeSelect-root MuiNativeSelect-select MuiInputBase-input MuiInput-input"
+    onAnimationStart={[Function]}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+  >
+    <option
+      className="options"
+      value={101}
+    >
+      Agence #101
+    </option>
+    <option
+      className="options"
+      value={102}
+    >
+      Agence #102
+    </option>
+    <option
+      className="options"
+      value={103}
+    >
+      Agence #103
+    </option>
+  </select>
+  <svg
+    aria-hidden={true}
+    className="MuiSvgIcon-root MuiNativeSelect-icon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M7 10l5 5 5-5z"
+    />
+  </svg>
+</div>
+`;
+
+exports[`AgencySelector renders correctly for smartphones 1`] = `
+<button
+  className="MuiButtonBase-root MuiIconButton-root css-hna2n5-AgencySelector"
+  disabled={false}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiIconButton-label"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root css-15pd8ov-AgencySelector"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"
+      />
+    </svg>
+  </span>
+  <span
+    className="MuiTouchRipple-root"
+  />
+</button>
+`;

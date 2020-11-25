@@ -130,7 +130,9 @@ export default function MessagesList() {
           key={`message-${message.id}`}
           onClick={() => openMessage(message)}
           button>
-          <ListItemIcon>{renderMessageIcon(message.type, message.read)}</ListItemIcon>
+          <ListItemIcon key={`message-${message.id}-icon`}>
+            {renderMessageIcon(message.type, message.read)}
+          </ListItemIcon>
           <ListItemText
             primary={
               <React.Fragment>
@@ -144,9 +146,10 @@ export default function MessagesList() {
                 {renderMessagePreview(message.body, message.read)}
               </React.Fragment>
             }
+            key={`message-${message.id}-text`}
           />
         </ListItem>,
-        <Divider variant="inset" component="li" />,
+        <Divider variant="inset" component="li" key={`divider-${message.id}`} />,
       ]
     })
   }
@@ -166,6 +169,7 @@ export default function MessagesList() {
         overflow: auto;
       `}>
       <InfiniteScroll
+        key={`infinite-scroll-${page}`}
         pageStart={0}
         loadMore={() => getMoreMessages(selectedAgency, page)}
         hasMore={hasMore}

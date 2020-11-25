@@ -15,6 +15,12 @@
     "Babel",
     "ES6"
   ],
+  "jest": {
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest",
+      "^.+\\.svg$": "jest-svg-transformer"
+    }
+  },
   "author": "Domitille Dempuré",
   "devDependencies": {
     "@babel/core": "^7.8.3",
@@ -25,8 +31,8 @@
     "@babel/runtime": "^7.8.3",
     "@hot-loader/react-dom": "^16.11.0",
     "babel-eslint": "10.0.3",
-    "babel-loader": "8.0.6",
     "babel-jest": "^26.6.3",
+    "babel-loader": "8.0.6",
     "babel-plugin-module-resolver": "^4.0.0",
     "compression-webpack-plugin": "3.1.0",
     "concurrently": "5.1.0",
@@ -46,19 +52,20 @@
     "webpack-hot-middleware": "2.25.0"
   },
   "dependencies": {
-    "@instructure/uid": "^6.17.0",
     "@emotion/core": "^10.0.27",
+    "@instructure/uid": "^6.17.0",
     "@material-ui/core": "4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material/typography": "4.0.0",
     "classnames": "2.2.6",
+    "connected-react-router": "6.8.0",
+    "dayjs": "^1.9.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "fbjs": "1.0.0",
     "fetch-mock": "^9.10.7",
-    "connected-react-router": "6.8.0",
-    "dayjs": "^1.9.6",
     "history": "4.10.1",
+    "jest-svg-transformer": "^1.0.0",
     "lodash": "4.17.19",
     "react": "16.13.0",
     "react-albus": "^2.0.0",

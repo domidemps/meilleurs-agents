@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnreadMessagesCounter renders correctly for computers/tablets 1`] = `
+<div
+  className="MuiChip-root css-1we3e77-UnreadMessagesCounter MuiChip-colorPrimary"
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+>
+  <svg
+    aria-hidden={true}
+    className="MuiSvgIcon-root MuiChip-icon MuiChip-iconColorPrimary"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+    />
+  </svg>
+  <span
+    className="MuiChip-label"
+  >
+    <strong>
+      73
+    </strong>
+  </span>
+</div>
+`;
+
+exports[`UnreadMessagesCounter renders correctly for smartphones 1`] = `
+<div
+  className="MuiChip-root css-1we3e77-UnreadMessagesCounter MuiChip-colorPrimary"
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+>
+  <svg
+    aria-hidden={true}
+    className="MuiSvgIcon-root MuiChip-icon MuiChip-iconColorPrimary"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+    />
+  </svg>
+  <span
+    className="MuiChip-label"
+  >
+    <strong>
+      73
+    </strong>
+  </span>
+</div>
+`;

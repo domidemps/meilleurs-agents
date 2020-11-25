@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageView renders correctly for computers/tablets 1`] = `
+<div
+  className="css-12yxprc-MessageView"
+>
+  <div
+    className="MuiPaper-root papers paperTop MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <h5
+      className="MuiTypography-root css-5kj36g MuiTypography-h5"
+    >
+      John
+       
+      Brown
+    </h5>
+    <div
+      className="infos"
+    >
+      <div>
+        <p
+          className="MuiTypography-root contactLabel MuiTypography-body1"
+        >
+          Email
+        </p>
+        <p
+          className="MuiTypography-root contactLabel MuiTypography-body1"
+        >
+          Téléphone
+        </p>
+      </div>
+      <div
+        className="inLine"
+      >
+        <p
+          className="MuiTypography-root contactValue MuiTypography-body1"
+        >
+          jbrown@gmail.com
+        </p>
+        <p
+          className="MuiTypography-root contactValue MuiTypography-body1"
+        >
+          06 71 45 97 84
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="MuiPaper-root papers paperBottom MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <h5
+      className="MuiTypography-root css-5kj36g MuiTypography-h5"
+    >
+      John
+       
+      Brown
+    </h5>
+    <h6
+      className="MuiTypography-root css-wc552f MuiTypography-h6"
+    >
+      Le 
+      23/11/2020
+       à 
+      19:58
+    </h6>
+    <div
+      className="messageBody"
+    >
+      Lorem Ipsum #10156 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MessageView renders correctly for smartphones 1`] = `
+<div
+  className="css-12yxprc-MessageView"
+>
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-contained css-1stnv2n-MessageView MuiButton-containedPrimary"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiButton-label"
+    >
+      <span
+        className="MuiButton-startIcon MuiButton-iconSizeMedium"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"
+          />
+        </svg>
+      </span>
+      Retour
+    </span>
+  </button>
+  <div
+    className="MuiPaper-root papers paperTop MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <h5
+      className="MuiTypography-root css-5kj36g MuiTypography-h5"
+    >
+      John
+       
+      Brown
+    </h5>
+    <div
+      className="infos"
+    >
+      <div>
+        <p
+          className="MuiTypography-root contactLabel MuiTypography-body1"
+        >
+          Email
+        </p>
+        <p
+          className="MuiTypography-root contactLabel MuiTypography-body1"
+        >
+          Téléphone
+        </p>
+      </div>
+      <div
+        className="inLine"
+      >
+        <p
+          className="MuiTypography-root contactValue MuiTypography-body1"
+        >
+          jbrown@gmail.com
+        </p>
+        <p
+          className="MuiTypography-root contactValue MuiTypography-body1"
+        >
+          06 71 45 97 84
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="MuiPaper-root papers paperBottom MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <h5
+      className="MuiTypography-root css-5kj36g MuiTypography-h5"
+    >
+      John
+       
+      Brown
+    </h5>
+    <h6
+      className="MuiTypography-root css-wc552f MuiTypography-h6"
+    >
+      Le 
+      23/11/2020
+       à 
+      19:58
+    </h6>
+    <div
+      className="messageBody"
+    >
+      Lorem Ipsum #10156 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div>
+  </div>
+</div>
+`;
