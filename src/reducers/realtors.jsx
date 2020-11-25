@@ -35,7 +35,7 @@ export default (state = realtorsInitialState(), action) => {
       newAgencies[agencyIndex].unread_messages = newCounter
       return {
         ...state,
-        newAgencies,
+        agencies: newAgencies,
         unreadMessages: newCounter,
       }
     default:

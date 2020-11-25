@@ -3,7 +3,7 @@ import isEmpty from 'lodash/isEmpty'
 import filter from 'lodash/filter'
 import findIndex from 'lodash/findIndex'
 
-export function initialMessagesState() {
+export function messagesInitialState() {
   return {
     messages: [],
     page: 1,
@@ -12,7 +12,7 @@ export function initialMessagesState() {
   }
 }
 
-export default (state = initialMessagesState(), action) => {
+export default (state = messagesInitialState(), action) => {
   switch (action.type) {
     case 'GET_PAGE_MESSAGES_SUCCESS':
       return {
@@ -22,7 +22,7 @@ export default (state = initialMessagesState(), action) => {
         hasMore: !isEmpty(action.messages),
       }
     case 'SELECT_AGENCY':
-      return initialMessagesState()
+      return messagesInitialState()
     case 'SET_MESSAGE_SELECTED': {
       const selectedMessage = filter(state.messages, message => {
         return message.id === action.messageId
