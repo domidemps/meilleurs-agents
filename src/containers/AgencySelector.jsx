@@ -71,7 +71,7 @@ export default function AgencySelector() {
       <Dialog onClose={handleToggleDialogPhoneView} open={isDialogPhoneViewOpen}>
         <DialogTitle>Choisir une agence</DialogTitle>
         <DialogContent>
-          <NativeSelect css={styles} onChange={e => handleSelection(e)}>
+          <NativeSelect css={styles} onChange={e => handleSelection(e)} value={selectedAgency}>
             {renderAgenciesChoices()}
           </NativeSelect>
         </DialogContent>
@@ -94,7 +94,7 @@ export default function AgencySelector() {
           />
         </IconButton>
       ) : (
-        <NativeSelect css={styles} onChange={e => handleSelection(e)}>
+        <NativeSelect css={styles} onChange={e => handleSelection(e)} value={selectedAgency}>
           {renderAgenciesChoices()}
         </NativeSelect>
       )}

@@ -47,6 +47,7 @@ exports[`Header renders correctly for computers/tablets 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
+        value="101"
       >
         <option
           className="options"

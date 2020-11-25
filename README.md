@@ -29,7 +29,7 @@ The realtor:
 ## Let's start
 
 - Run the API, port 5001
-- Build the code: `yarn build`
+- Build the code: `yarn`
 - Start the client: `yarn start`
 - Open a browser and go to http://localhost:8080/
 
